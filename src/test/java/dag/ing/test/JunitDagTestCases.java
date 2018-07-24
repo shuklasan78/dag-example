@@ -245,7 +245,7 @@ public class JunitDagTestCases {
 		
     }
 	
-	@Test(expected=IllegalArgumentException.class)
+	@Test
 	public void testAssertAncestorDescendentAdditionToList() {
 		/*Arrange*/
 		DAG  myUnit = new DAG();
@@ -264,5 +264,25 @@ public class JunitDagTestCases {
         /*Assert*/
         assertArrayEquals(expected, actual);
     }
+	
+	@Test
+	public void testEmptyForMammals() {
+		Animal  myUnit = new Mammals();
+		/*Act*/
+		boolean result = myUnit.isDesendant("", "");
+		/*Assert*/
+      	assertFalse("Ancestor and Desendant for Mammals cannot be empty :",result);
+    }
+	
+	@Test
+	public void testEmptyForReptiles() {
+		/*Arrange*/
+		Animal  myUnit = new Reptiles();
+		/*Act*/
+		boolean result = myUnit.isDesendant("", "");
+		/*Assert*/
+      	assertFalse("Ancestor and Desendant for Reptiles cannot be empty :",result);
+    }
+	
 	
 }

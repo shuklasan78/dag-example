@@ -10,9 +10,10 @@ import java.util.List;
  */
 public class DAG {
 	
-	private List<String> dagList =  new LinkedList(); // Holds the ancestor and descendant relationship
+	private List<String> dagList =  new LinkedList<String>(); // Holds the ancestor and descendant relationship
 	private static final String  MAMMALS="Mammals";
 	private static final String REPTILES="Reptiles";
+	private static final String ANIMAL="Animal";
 
 	/** The valid ancestor and descendant relationship is added using this the method. The method add the valid relationship in list.
 	 * @param ancestor is the Origin from which one is descended
@@ -25,7 +26,7 @@ public class DAG {
 		Animal animal = null; 
 		
 		// verify and make sure that only valid ancestor are sent as parameter
-		if((!ancestor.equalsIgnoreCase("Animal") ) && (!ancestor.equalsIgnoreCase(DAG.MAMMALS)) && (!ancestor.equalsIgnoreCase(DAG.REPTILES)) )
+		if((!ancestor.equalsIgnoreCase(DAG.ANIMAL) ) && (!ancestor.equalsIgnoreCase(DAG.MAMMALS)) && (!ancestor.equalsIgnoreCase(DAG.REPTILES)) )
 		{
 			throw new IllegalArgumentException("Not a Valid ancestor");
 		}
@@ -51,7 +52,7 @@ public class DAG {
 				throw new IllegalArgumentException("Ancestor or Descendant relation not valid :");
 			}
 		}
-		 // Mammals can be ancestor to Lizard,Crocodile etc and also can be descendant to Animal origin. The below code block can be reused and that will be taken care while refactoring of the code.
+		 // Reptiles can be ancestor to Lizard,Crocodile etc and also can be descendant to Animal origin. The below code block can be reused and that will be taken care while refactoring of the code.
 
 		else if(ancestor.equalsIgnoreCase(DAG.REPTILES) || descendant.equalsIgnoreCase(DAG.REPTILES))
 		{
