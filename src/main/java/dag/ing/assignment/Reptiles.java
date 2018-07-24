@@ -3,7 +3,7 @@ package dag.ing.assignment;
  * This class implements the Animal Interface and determines the desendant of the Reptiles family.
  * @author Sandeep Kumar Shukla
  * @version 1.0
- * @since   23-Jul-2018 
+ * @since   24-Jul-2018 
  *
  */
 public class Reptiles implements Animal{
