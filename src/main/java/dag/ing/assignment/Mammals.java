@@ -23,7 +23,7 @@ public class Mammals implements Animal {
 	public boolean isDesendant(String ancestor, String desendant) {
 		
 		
-		if(ancestor.equalsIgnoreCase("Animal") & desendant.equalsIgnoreCase("Mammals"))
+		if(ancestor.equalsIgnoreCase("Animal") && desendant.equalsIgnoreCase("Mammals"))
 		{
 			return true;
 		}
@@ -38,7 +38,9 @@ public class Mammals implements Animal {
 			else
 			{
 				return false;
+
 			}
+			
 		}
 		else
 		{

@@ -21,7 +21,7 @@ public class Reptiles implements Animal{
 	@Override
 	public boolean isDesendant(String ancestor, String desendant) {
 				 
-		if(ancestor.equalsIgnoreCase("Animal") & desendant.equalsIgnoreCase("Reptiles"))
+		if(ancestor.equalsIgnoreCase("Animal") && desendant.equalsIgnoreCase("Reptiles"))
 		{
 			return true;
 		}

@@ -11,19 +11,22 @@ import java.util.List;
  */
 public class DAG {
 	
-	private List<String> dagList =  new LinkedList<String>(); // Holds the ancestor and descendant relationship
-	
+	private List<String> dagList =  new LinkedList(); // Holds the ancestor and descendant relationship
+	private static final String  MAMMALS="Mammals";
+	private static final String REPTILES="Reptiles";
+
 	/** The valid ancestor and descendant relationship is added using this the method. The method add the valid relationship in list.
 	 * @param ancestor is the Origin from which one is descended
 	 * @param decendent is the one which is inherited from ancestor
 	 * @throws IllegalArgumentException is thrown if ancestor and descendant relationship chosen is not valid.
 	 */
-	public void put(final String ancestor,final String descendant) throws IllegalArgumentException
+	public void put(final String ancestor,final String descendant)
 	{
 		
 		Animal animal = null; 
+		
 		// verify and make sure that only valid ancestor are sent as parameter
-		if((!ancestor.equalsIgnoreCase("Animal") )& (!ancestor.equalsIgnoreCase("Mammals")) & (!ancestor.equalsIgnoreCase("Reptiles")) )
+		if((!ancestor.equalsIgnoreCase("Animal") ) && (!ancestor.equalsIgnoreCase(DAG.MAMMALS)) && (!ancestor.equalsIgnoreCase(DAG.REPTILES)) )
 		{
 			throw new IllegalArgumentException("Not a Valid ancestor");
 		}
@@ -34,7 +37,7 @@ public class DAG {
 			 
 		}
 		 // Mammals can be ancestor to CAT,DOG and also can be descendant to Animal origin
-		else if(ancestor.equalsIgnoreCase("Mammals") || descendant.equalsIgnoreCase("Mammals"))
+		else if(ancestor.equalsIgnoreCase(DAG.MAMMALS) || descendant.equalsIgnoreCase(DAG.MAMMALS))
 		{
 			animal = new Mammals();
 			boolean isDesendant= animal.isDesendant(ancestor, descendant);
@@ -51,7 +54,7 @@ public class DAG {
 		}
 		 // Mammals can be ancestor to Lizard,Crocodile etc and also can be descendant to Animal origin. The below code block can be reused and that will be taken care while refactoring of the code.
 
-		else if(ancestor.equalsIgnoreCase("Reptiles") || descendant.equalsIgnoreCase("Reptiles"))
+		else if(ancestor.equalsIgnoreCase(DAG.REPTILES) || descendant.equalsIgnoreCase(DAG.REPTILES))
 		{
 			animal = new Reptiles();
 			boolean isDesendant= animal.isDesendant(ancestor, descendant);
@@ -80,16 +83,6 @@ public class DAG {
 		return dagList;
 	}
 	
-/*	public static void main(String[] args) {		
-		DAG  myUnit = new DAG();
-		myUnit.put("Animal", "Reptiles");
-        myUnit.put("Animal", "Mammals"); 
-        myUnit.put("Mammals", "Cow");
-        myUnit.put("Animal", "Cow");      
-        myUnit.put("Reptiles", "Lizard");      
-        myUnit.put("Animal", "Lizard");    
-		System.out.println(myUnit.dagList);
 
-	}*/
 	
 }
